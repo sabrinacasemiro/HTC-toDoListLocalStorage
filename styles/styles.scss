@@ -1,0 +1,96 @@
+@import 'mixins.scss';
+@import 'variables.scss';
+
+body{
+    background-color: #E6E6E6;
+    @include flexColumn;
+    height: 100vh;
+    width: 100vw;
+}
+
+.header__wrapper{
+    height: 70px;
+    width: 30%;
+    background-color: $main-color;
+    @include flex;
+    justify-content: flex-start;
+    font-family: $title-font;
+    font-size: calculadora-rem(35);
+    box-sizing: border-box;
+    padding: 0 30px;
+    border-radius: 10px 10px 0 0;
+    color: $background-color;
+
+    &--bars{
+        margin-right: 250px;
+        cursor: pointer;
+    }
+
+    &--title{
+        text-transform: capitalize;
+    }
+}
+
+.main-wrapper{
+    height: 500px;
+    width: 30%;
+    background-color: $background-color;
+    @include flexColumn;
+}
+
+.list__wrapper{
+    height: 80px;
+    width: 80%;
+    @include flexColumn;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 20px;
+    font-family: $text-font;
+
+    &--task{
+        @include flex;
+        height: 40px;
+        width: 100%;
+        margin-bottom: 20px;
+
+        &--checkbox{
+            height: 30px;
+            width: 30px;
+            border: 3px solid $input-color;
+            margin-right: 30px;
+            border-radius: 5px;
+            cursor: pointer;
+    
+            &--checked{
+                font-size: calculadora-rem(33);
+                transform: translateX(11px) translateY(-5px);
+                color: $checked-color;
+            }
+        }
+    
+        &--text{
+            font-size: calculadora-rem(30);
+            color: $text-color;
+            margin-right: 300px;
+        }
+    
+        &--trash{
+            font-size: calculadora-rem(25);
+            color: $text-color;
+            cursor: pointer;
+        }
+    }
+}
+
+.button-all{
+    height: 70px;
+    width: 250px;
+    background-color: $main-color;
+    border: none;
+    border-radius: 35px;
+    font-size: calculadora-rem(30);
+    font-family: $title-font;
+    color: $background-color;
+    cursor: pointer;
+    transform: translateY(-40px);
+}
