@@ -8,6 +8,12 @@ const Task = (props) => {
         classList: ['fas', 'fa-check', 'list__wrapper--task--checkbox--checked', props.done ? '' : 'remove']
     })
 
+    const _nameTask = Element({
+        type: 'p',
+        classList: ['list__wrapper--task--text',  props.done ? 'text-done' : ''],
+        textContent: props.name
+    })
+
     const _checkbox = Element({
         type: 'div',
         classList: ['list__wrapper--task--checkbox'],
@@ -19,12 +25,6 @@ const Task = (props) => {
 
             printList(data.read(), $parent)
         }
-    })
-
-    const _nameTask = Element({
-        type: 'p',
-        classList: ['list__wrapper--task--text'],
-        textContent: props.name
     })
 
     const _inputHide = Element({
