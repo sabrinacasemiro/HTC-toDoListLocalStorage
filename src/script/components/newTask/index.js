@@ -4,17 +4,7 @@ const $mainWrapper = document.querySelector('.main-wrapper')
 const $buttonNewTask = document.querySelector('.button-new-task')
 
 const newTask = () => {
-    const _newTaskWrapper = Element({
-        type: 'section',
-        classList: ['new-task__wrapper']
-    })
-
-    const _newTaskHeader = Element({
-        type: 'div',
-        classList: ['new-task__wrapper--header']
-    })
-
-    const _newTaskTitle = Element({
+        const _newTaskTitle = Element({
         type: 'h2',
         classList: ['new-task__wrapper--header--title'],
         textContent: 'Nova Tarefa'
@@ -22,7 +12,10 @@ const newTask = () => {
 
     const _newTaskClose = Element({
         type: 'i',
-        classList: ['fas', 'fa-times', 'new-task__wrapper--header--close']
+        classList: ['fas', 'fa-times', 'new-task__wrapper--header--close'],
+        onClick: () => {
+            _newTaskWrapper.classList.remove('new-task-open')
+        }
     })
 
     const _newTaskInput = Element({
@@ -37,20 +30,23 @@ const newTask = () => {
         textContent: '+'
     })
 
-    // $mainWrapper.appendChild(_newTaskWrapper)
-    // _newTaskWrapper.appendChild(_newTaskHeader)
-    // _newTaskHeader.appendChild(_newTaskTitle)
-    // _newTaskHeader.appendChild(_newTaskClose)
-    // _newTaskWrapper.appendChild(_newTaskInput)
-    // _newTaskWrapper.appendChild(_newTaskButton)
+    const _newTaskHeader = Element({
+        type: 'div',
+        classList: ['new-task__wrapper--header'],
+        children: [_newTaskTitle, _newTaskClose,]
+    })
 
-    // $buttonNewTask.addEventListener('click', function(){
-    //     _newTaskWrapper.classList.add('new-task-open')
-    // })
+    const _newTaskWrapper = Element({
+        type: 'section',
+        classList: ['new-task__wrapper'],
+        children: [_newTaskHeader, _newTaskInput, _newTaskButton]
+    })
 
-    // _newTaskClose.addEventListener('click', function(){
-    //     _newTaskWrapper.classList.remove('new-task-open')
-    // })
+    $mainWrapper.appendChild(_newTaskWrapper)
+
+    $buttonNewTask.addEventListener('click', function(){
+        _newTaskWrapper.classList.add('new-task-open')
+    })
 }
 
 export default newTask
