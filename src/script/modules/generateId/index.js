@@ -8,7 +8,6 @@ const generateId = (maxLength) => {
         const number = randomNumber(characters.length)
         id += characters[number]
     }
-    console.log(id)
 
     return id
 } 
