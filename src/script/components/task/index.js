@@ -1,7 +1,6 @@
 import Element  from "../Element/index.js"
 
 const Task = (task) => {
-    console.log(task)
     const _task = Element({
         type: 'li',
         classList: ['list__wrapper--task']

@@ -1,0 +1,16 @@
+import randomNumber from "../randomNumber/index.js"
+
+const generateId = (maxLength) => {
+    let id = ''
+    const characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    for(let i = 0; i < maxLength; i++){
+        const number = randomNumber(characters.length)
+        id += characters[number]
+    }
+    console.log(id)
+
+    return id
+} 
+
+export default generateId

@@ -43,7 +43,7 @@ body {
 }
 
 .header__wrapper--bars {
-  margin-right: 250px;
+  margin-right: 200px;
   cursor: pointer;
 }
 
@@ -68,6 +68,13 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 100px 0 100px 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: auto;
 }
 
 .list__wrapper {
@@ -86,12 +93,9 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 20px;
+  padding: 10px;
   font-family: "Rajdhani", sans-serif;
 }
 
@@ -108,6 +112,9 @@ body {
   height: 40px;
   width: 100%;
   margin-bottom: 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .list__wrapper--task--checkbox {
@@ -129,13 +136,14 @@ body {
 .list__wrapper--task--text {
   font-size: 1.875rem;
   color: #303030;
-  margin-right: 300px;
+  width: 90%;
 }
 
 .list__wrapper--task--trash {
   font-size: 1.5625rem;
   color: #303030;
   cursor: pointer;
+  text-align: end;
 }
 
 .button-all {
@@ -150,5 +158,150 @@ body {
   cursor: pointer;
   -webkit-transform: translateY(-40px);
           transform: translateY(-40px);
+}
+
+.new-task__wrapper {
+  display: none;
+}
+
+.new-task__wrapper--header {
+  width: 100%;
+  height: 75px;
+  background-color: #EB5474;
+  border-radius: 10px 10px 0 0;
+  color: #FFE6DF;
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.5625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-right: 50px;
+}
+
+.new-task__wrapper--header--title {
+  margin-right: 150px;
+}
+
+.new-task__wrapper--header--close {
+  cursor: pointer;
+}
+
+.new-task__wrapper--input {
+  border: 1px solid #BF8489;
+  height: 50px;
+  width: 80%;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-left: 10px;
+  font-size: 1.25rem;
+  color: #BF8489;
+}
+
+.new-task__wrapper--input::-webkit-input-placeholder {
+  color: #BF8489;
+}
+
+.new-task__wrapper--input:-ms-input-placeholder {
+  color: #BF8489;
+}
+
+.new-task__wrapper--input::-ms-input-placeholder {
+  color: #BF8489;
+}
+
+.new-task__wrapper--input::placeholder {
+  color: #BF8489;
+}
+
+.new-task__wrapper--button {
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  width: 50px;
+  height: 50px;
+  font-size: 3.125rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+
+.new-task-open {
+  height: 200px;
+  width: 70%;
+  background-color: #FFE6DF;
+  border: 2px solid #EB5474;
+  border-top: none;
+  border-radius: 10px 10px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  z-index: 1;
+  -webkit-transform: translateY(-100px);
+          transform: translateY(-100px);
+  -webkit-animation: open-new-task 1500;
+          animation: open-new-task 1500;
+}
+
+@-webkit-keyframes open-new-task {
+  0% {
+    height: 0px;
+    width: 0px;
+  }
+  50% {
+    height: 100px;
+    width: 35%;
+  }
+  100% {
+    height: 200px;
+    width: 70%;
+  }
+}
+
+@keyframes open-new-task {
+  0% {
+    height: 0px;
+    width: 0px;
+  }
+  50% {
+    height: 100px;
+    width: 35%;
+  }
+  100% {
+    height: 200px;
+    width: 70%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
