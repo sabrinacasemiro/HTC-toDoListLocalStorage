@@ -5,13 +5,20 @@ import printList from "../../modules/printList/index.js"
 const Task = (props) => {
     const _checked = Element({
         tipe: 'i',
-        classList: ['fas', 'fa-check', 'list__wrapper--task--checkbox--checked', 'remove']
+        classList: ['fas', 'fa-check', 'list__wrapper--task--checkbox--checked', props.done ? '' : 'remove']
     })
 
     const _checkbox = Element({
         type: 'div',
         classList: ['list__wrapper--task--checkbox'],
-        children: [_checked]
+        children: [_checked],
+        onClick: () => {
+            const $parent = document.querySelector('.list__wrapper')
+            _checked.classList.toggle('remove')
+            data.update(props._id, {done: !props.done})
+
+            printList(data.read(), $parent)
+        }
     })
 
     const _nameTask = Element({
@@ -31,7 +38,12 @@ const Task = (props) => {
                 data.update(props._id, {name: _inputHide.value})
                 printList(data.read(), $parent)
             }
+        },
+        onBlur: () => {
+            const $parent = document.querySelector('.list__wrapper')
 
+            data.update(props._id, {name: _inputHide.value})
+            printList(data.read(), $parent)
         }
     })
 

@@ -37,20 +37,20 @@ const newTask = () => {
         textContent: '+'
     })
 
-    $mainWrapper.appendChild(_newTaskWrapper)
-    _newTaskWrapper.appendChild(_newTaskHeader)
-    _newTaskHeader.appendChild(_newTaskTitle)
-    _newTaskHeader.appendChild(_newTaskClose)
-    _newTaskWrapper.appendChild(_newTaskInput)
-    _newTaskWrapper.appendChild(_newTaskButton)
+    // $mainWrapper.appendChild(_newTaskWrapper)
+    // _newTaskWrapper.appendChild(_newTaskHeader)
+    // _newTaskHeader.appendChild(_newTaskTitle)
+    // _newTaskHeader.appendChild(_newTaskClose)
+    // _newTaskWrapper.appendChild(_newTaskInput)
+    // _newTaskWrapper.appendChild(_newTaskButton)
 
-    $buttonNewTask.addEventListener('click', function(){
-        _newTaskWrapper.classList.add('new-task-open')
-    })
+    // $buttonNewTask.addEventListener('click', function(){
+    //     _newTaskWrapper.classList.add('new-task-open')
+    // })
 
-    _newTaskClose.addEventListener('click', function(){
-        _newTaskWrapper.classList.remove('new-task-open')
-    })
+    // _newTaskClose.addEventListener('click', function(){
+    //     _newTaskWrapper.classList.remove('new-task-open')
+    // })
 }
 
 export default newTask

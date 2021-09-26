@@ -5,7 +5,6 @@ import printList from './modules/printList/index.js'
 const parent = document.querySelector('.list__wrapper')
 
 data.creat({name: 'teste', done: 'true'})
-console.log(data.read())
 data.delete()
 
 printList(data.toDoList, parent)
