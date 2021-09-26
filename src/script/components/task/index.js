@@ -22,13 +22,23 @@ const Task = (props) => {
 
     const _inputHide = Element({
         type: 'input',
-        classList: ['list__wrapper--task--input', 'remove']
+        classList: ['list__wrapper--task--input', 'remove'],
+        onKeyDown: (event) => {
+            const $parent = document.querySelector('.list__wrapper')
+            const key = event.key
+
+            if(key === 'Enter'){
+                data.update(props._id, {name: _inputHide.value})
+                printList(data.read(), $parent)
+            }
+
+        }
     })
 
     const _edit = Element({
         type: 'i',
         classList: ['fas', 'fa-pencil-alt', 'list__wrapper--task--edit', 'list__wrapper--task--icon'],
-        onClick: (event) => {
+        onClick: () => {
             _nameTask.classList.add('remove')
             _inputHide.classList.remove('remove')
             _inputHide.value = props.name
@@ -39,7 +49,7 @@ const Task = (props) => {
     const _trash = Element({
         type: 'i',
         classList: ['far', 'fa-trash-alt', 'list__wrapper--task--trash', 'list__wrapper--task--icon'],
-        onClick: (event) => {
+        onClick: () => {
             const $parent = document.querySelector('.list__wrapper')
             data.delete(props._id)
             printList(data.read(), $parent)

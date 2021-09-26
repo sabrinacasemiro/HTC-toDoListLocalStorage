@@ -7,7 +7,7 @@ const Element = (props) => {
     props.placeholder && (_element.placeholder = props.placeholder)
     props.children && props.children.forEach(children => _element.appendChild(children))
     props.onClick && _element.addEventListener('click', props.onClick)
-
+    props.onKeyDown && _element.addEventListener('keydown', props.onKeyDown)
     
 
     return _element
