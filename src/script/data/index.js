@@ -1,52 +1,43 @@
-import generateId from "../modules/generateId/index.js"
+import generateId from "../modules/generateId/index.js";
+import storage from "../modules/storage/index.js";
 
 const data = {
-    toDoList: [
-        {
-            _id: '0',
-            name: 'Tirar o lixo',
-            done: false,
-        },
-        {
-            _id: '1',
-            name: 'Estudar JS',
-            done: false,
-        },
-    ],
+  toDoList: [],
+  set: (newData) => {
+    storage.set("toDoList", newData);
+  },
 
-    set: (newData) => {
-        data.toDoList = newData
-    },
+  creat: (task) => {
+    const list = data.read();
+    const id = generateId(40);
 
-    creat: (task) => {
-        const list = data.read()
-        const id = generateId(40)
+    data.set([...list, { _id: id, ...task }]);
+  },
 
-        data.set([...list, { _id: id, ...task}])
-    },
+  read: () => {
+    const toDoList = storage.get("toDoList");
 
-    read: () => {
-        return [...data.toDoList]
-    },
+    return toDoList ? toDoList : [];
+  },
 
-    update: (id, newData) => {
-        const list = data.read()
+  update: (id, newData) => {
+    const list = data.read();
 
-        const newList = list.map((item) => {
-            const data = {...item, ...newData}
-            if(item._id === id) return data
-            if(item._id !== id) return item
-        })
+    const newList = list.map((item) => {
+      const data = { ...item, ...newData };
+      if (item._id === id) return data;
+      if (item._id !== id) return item;
+    });
 
-        data.set(newList)
-    },
+    data.set(newList);
+  },
 
-    delete: (id) => {
-        const list = data.read()
-        const newToDoList = list.filter((item) => item._id !== id)
+  delete: (id) => {
+    const list = data.read();
+    const newToDoList = list.filter((item) => item._id !== id);
 
-        data.set(newToDoList)
-    }
-}
+    data.set(newToDoList);
+  },
+};
 
-export default data
+export default data;

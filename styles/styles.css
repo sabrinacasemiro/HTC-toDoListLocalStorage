@@ -43,7 +43,7 @@ body {
 }
 
 .header__wrapper--bars {
-  margin-right: 200px;
+  margin-right: 150px;
   cursor: pointer;
 }
 
@@ -291,7 +291,7 @@ body {
 
 .new-task-open {
   height: 200px;
-  width: 600px;
+  width: 565px;
   background-color: #FFE6DF;
   border: 2px solid #EB5474;
   border-top: none;

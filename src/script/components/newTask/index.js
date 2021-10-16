@@ -63,7 +63,7 @@ const newTask = () => {
     const _newTaskWrapper = Element({
         type: 'section',
         classList: ['new-task__wrapper'],
-        children: [_newTaskHeader, _newTaskInput, _newTaskButton]
+        children: [_newTaskHeader, _newTaskInput, _newTaskButton],
     })
 
     $mainWrapper.appendChild(_newTaskWrapper)

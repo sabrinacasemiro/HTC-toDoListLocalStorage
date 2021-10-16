@@ -51,6 +51,8 @@ const Task = (props) => {
         type: 'i',
         classList: ['fas', 'fa-pencil-alt', 'list__wrapper--task--edit', 'list__wrapper--task--icon'],
         onClick: () => {
+            if(props.done) return
+            
             _nameTask.classList.add('remove')
             _inputHide.classList.remove('remove')
             _inputHide.value = props.name
